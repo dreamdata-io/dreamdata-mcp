@@ -4,9 +4,9 @@
   "description": "Query your Dreamdata B2B revenue attribution data from your AI assistant — saved reports, account journeys, audiences, and the report builder.",
   "author": {
     "name": "Dreamdata",
-    "email": "friends@dreamdata.io"
+    "email": "mcp-feedback@dreamdata.io"
   },
-  "homepage": "https://dreamdata.io",
+  "homepage": "https://developer.dreamdata.io/mcp/mcp-server",
   "repository": "https://github.com/dreamdata-io/dreamdata-mcp",
   "license": "MIT",
   "keywords": [
@@ -20,6 +20,6 @@
     "account-journeys",
     "pipeline"
   ],
-  "logo": "assets/logo.svg",
+  "logo": "assets/logo.png",
   "mcpServers": "./mcp.json"
 }

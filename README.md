@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" alt="Dreamdata" width="96">
+  <img src="assets/logo.png" alt="Dreamdata" width="120">
 </p>
 
 <h1 align="center">Dreamdata MCP Server</h1>
@@ -13,6 +13,12 @@
   <a href="https://cursor.com/install-mcp?name=dreamdata&config=eyJ1cmwiOiJodHRwczovL21jcC5kcmVhbWRhdGEuaW8vbWNwIn0%3D"><img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add Dreamdata MCP server to Cursor" height="32"></a>
 </p>
 
+<p align="center">
+  <a href="https://developer.dreamdata.io/mcp/mcp-server"><strong>Documentation</strong></a>
+  &nbsp;·&nbsp;
+  <a href="mailto:mcp-feedback@dreamdata.io"><strong>Feedback &amp; support</strong></a>
+</p>
+
 ---
 
 ## What this is
@@ -22,7 +28,9 @@ nothing to install, build, or self-host — you point your MCP client at that UR
 with your existing Dreamdata account.
 
 This repository is the public home for the connector: the plugin manifest, the client
-configuration, and the setup docs. The server implementation itself is closed-source.
+configuration, and the logo. Full product documentation lives at
+<https://developer.dreamdata.io/mcp/mcp-server>. The server implementation itself is
+closed-source.
 
 | | |
 |---|---|
@@ -31,6 +39,7 @@ configuration, and the setup docs. The server implementation itself is closed-so
 | **Auth** | OAuth 2.1 with PKCE and Dynamic Client Registration — no API keys, no secrets to paste |
 | **Hosting** | Hosted by Dreamdata in the EU (Google Cloud `europe-west1`) |
 | **Requires** | A Dreamdata account with report access |
+| **Docs** | <https://developer.dreamdata.io/mcp/mcp-server> |
 
 ## Install
 
@@ -83,6 +92,10 @@ Access is checked against Dreamdata on every call, so you can only ever read the
 you are already a member of.
 
 ## Tools
+
+Full descriptions, arguments, and worked examples are in the
+[developer docs](https://developer.dreamdata.io/mcp/mcp-server). You do not call these by
+name — describe what you want and the assistant picks the right tool.
 
 **Reports**
 
@@ -151,6 +164,7 @@ you are already a member of.
 - **Per-request authorization.** Every tool call re-checks that your token grants access to
   the requested account.
 - Dreamdata's security posture and subprocessors: <https://trust.dreamdata.io>
+- Vulnerability reports: [mcp-feedback@dreamdata.io](mailto:mcp-feedback@dreamdata.io) — see [SECURITY.md](SECURITY.md)
 
 ## Troubleshooting
 
@@ -168,20 +182,25 @@ not visible over MCP either.
 (`https://mcp.dreamdata.io/accounts/{slug}/mcp`). Reconnect using
 `https://mcp.dreamdata.io/mcp` and pass the account with the `slug` argument instead.
 
+More setup and troubleshooting detail lives in the developer docs:
+<https://developer.dreamdata.io/mcp/mcp-server>
+
 ## Repository layout
 
 ```
 .cursor-plugin/plugin.json   Cursor plugin manifest (name, logo, MCP config pointer)
 mcp.json                     MCP client configuration for the hosted server
 server.json                  MCP registry metadata (modelcontextprotocol.io schema)
-assets/logo.svg              Dreamdata mark
+assets/logo.png              Dreamdata mark
 ```
 
 ## Support
 
-- Docs: <https://help.dreamdata.io>
-- Email: [friends@dreamdata.io](mailto:friends@dreamdata.io)
-- Issues with this connector: [open an issue](https://github.com/dreamdata-io/dreamdata-mcp/issues)
+- **Documentation:** <https://developer.dreamdata.io/mcp/mcp-server>
+- **Questions, bugs, and feedback:** [mcp-feedback@dreamdata.io](mailto:mcp-feedback@dreamdata.io)
+
+Please email issues rather than filing them on GitHub — the mailbox is monitored by the team
+that runs the server, so it reaches the right people faster.
 
 ## About Dreamdata
 

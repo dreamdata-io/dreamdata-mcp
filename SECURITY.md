@@ -4,9 +4,9 @@
 
 Please do **not** open a public GitHub issue for security reports.
 
-Email [friends@dreamdata.io](mailto:friends@dreamdata.io) with the details and we will route
-it to the security team. Dreamdata's security posture, certifications, and subprocessors are
-published at <https://trust.dreamdata.io>.
+Email [mcp-feedback@dreamdata.io](mailto:mcp-feedback@dreamdata.io) with the details and we
+will route it to the security team. Dreamdata's security posture, certifications, and
+subprocessors are published at <https://trust.dreamdata.io>.
 
 ## Scope
 
