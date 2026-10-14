@@ -6,7 +6,8 @@
 
 <p align="center">
   Connect your AI assistant to your Dreamdata B2B go-to-market data — saved reports,
-  account journeys, audiences, and the report builder.
+  account journeys, audiences, and the report builder. Save the reports and audiences
+  it builds back to Dreamdata.
 </p>
 
 <p align="center">
@@ -124,6 +125,7 @@ name — describe what you want and the assistant picks the right tool.
 | `describe_audience_config_schema` | JSON schema for an audience condition group |
 | `list_audience_filter_properties` | The account's audience filter property catalog |
 | `list_audience_filter_values` | Distinct values for a filter property |
+| `save_audience` | Save an audience the assistant built to your Audience Hub |
 
 **Report builder** — build a report from scratch, step by step
 
@@ -152,15 +154,23 @@ name — describe what you want and the assistant picks the right tool.
 - "Show me the full journey for Acme Corp and which touchpoints led to the opportunity."
 - "Build a report of new closed-won revenue by source for FY2026 and save it."
 - "Which companies in my target-accounts audience visited pricing in the last 30 days?"
+- "Save that list as an audience called 'EMEA SQLs – last 90 days'."
 
 ## Security and privacy
 
 - **No credentials in config.** Authentication is OAuth 2.1 with PKCE; your MCP client
   registers itself dynamically and holds a short-lived token. Nothing sensitive is written
   into `mcp.json`.
-- **Read-scoped by default.** Tools read your Dreamdata data. The one exception is
-  `report_builder_save_report`, which saves a report in your account and requires the
-  `reports:write` scope.
+- **Read-scoped by default.** Tools read your Dreamdata data. Two tools write, and each
+  needs an optional permission you grant on the authorization screen:
+  - `report_builder_save_report` saves a new report to your Analytics Hub
+    (**Save Dreamdata Reports**, `reports:write` scope).
+  - `save_audience` saves a new audience to your Audience Hub
+    (**Save Dreamdata Audiences**, `audiences:write` scope).
+
+  If you don't grant a permission, the matching tool is hidden. Both tools only create
+  new items and never change or overwrite existing ones. The assistant asks you to
+  confirm before it saves.
 - **Per-request authorization.** Every tool call re-checks that your token grants access to
   the requested account.
 - Dreamdata's security posture and subprocessors: <https://trust.dreamdata.io>
@@ -175,7 +185,8 @@ Dynamic Client Registration. Clients that require a pre-issued client ID cannot 
 `list_my_accounts` and tell it which account to use.
 
 **Tools are missing or a call is rejected.** Tool availability follows your Dreamdata
-permissions. If a report or audience is not visible to you in the Dreamdata Platform, it is
+permissions. The save tools appear only if you granted the matching optional permission
+when you connected; to add one later, disconnect and reconnect the server. If a report or audience is not visible to you in the Dreamdata Platform, it is
 not visible over MCP either.
 
 **`410 Gone`.** You are on a retired per-account endpoint

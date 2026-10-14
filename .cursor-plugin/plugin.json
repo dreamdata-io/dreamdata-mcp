@@ -1,7 +1,7 @@
 {
   "name": "dreamdata",
-  "version": "1.0.0",
-  "description": "Query your Dreamdata B2B revenue attribution data from your AI assistant — saved reports, account journeys, audiences, and the report builder.",
+  "version": "1.1.0",
+  "description": "Query your Dreamdata B2B revenue attribution data from your AI assistant — saved reports, account journeys, audiences, and the report builder — and save new reports and audiences back to Dreamdata.",
   "author": {
     "name": "Dreamdata",
     "email": "mcp-feedback@dreamdata.io"
