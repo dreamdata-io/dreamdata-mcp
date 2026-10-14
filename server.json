@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.dreamdata/dreamdata",
-  "description": "Query Dreamdata B2B revenue attribution: saved reports, account journeys, and audiences.",
-  "version": "1.0.0",
+  "description": "Query Dreamdata B2B revenue attribution: saved reports, journeys, audiences, report builder.",
+  "version": "1.1.0",
   "websiteUrl": "https://developer.dreamdata.io/mcp/mcp-server",
   "repository": {
     "url": "https://github.com/dreamdata-io/dreamdata-mcp",
