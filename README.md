@@ -46,6 +46,27 @@ closed-source.
 
 ### Cursor
 
+#### From the Cursor Marketplace
+
+Search for **Dreamdata** in the Cursor Marketplace and click **Install**. Cursor
+registers the MCP server from this plugin automatically. The first time you use it,
+Cursor opens a browser window for you to sign in to Dreamdata. Once the tools show
+up under **Settings → MCP**, you are connected.
+
+#### Local plugin (development / review)
+
+To load this repo as a local plugin before or without a Marketplace listing:
+
+```bash
+mkdir -p ~/.cursor/plugins/local
+ln -s "$(pwd)" ~/.cursor/plugins/local/dreamdata
+```
+
+Then reload Cursor (**Developer: Reload Window**) and confirm the Dreamdata MCP
+server appears under **Customize** / **Settings → MCP**.
+
+#### Deeplink or manual `mcp.json`
+
 Click the button above, or add it by hand to `~/.cursor/mcp.json` (global) or
 `.cursor/mcp.json` (per-project):
 
