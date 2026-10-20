@@ -142,6 +142,12 @@ name — describe what you want and the assistant picks the right tool.
 | `report_builder_run_config` | Run a configuration and return results |
 | `report_builder_save_report` | Save a configuration as a report in Dreamdata |
 
+**Dashboards**
+
+| Tool | What it does |
+|---|---|
+| `create_dashboard` | Build an Analytics Hub dashboard from built or saved reports, with a preview before saving |
+
 **Accounts**
 
 | Tool | What it does |
@@ -155,20 +161,24 @@ name — describe what you want and the assistant picks the right tool.
 - "Build a report of new closed-won revenue by source for FY2026 and save it."
 - "Which companies in my target-accounts audience visited pricing in the last 30 days?"
 - "Save that list as an audience called 'EMEA SQLs – last 90 days'."
+- "Build me a dashboard of MQLs by channel for the last 6 months."
 
 ## Security and privacy
 
 - **No credentials in config.** Authentication is OAuth 2.1 with PKCE; your MCP client
   registers itself dynamically and holds a short-lived token. Nothing sensitive is written
   into `mcp.json`.
-- **Read-scoped by default.** Tools read your Dreamdata data. Two tools write, and each
+- **Read-scoped by default.** Tools read your Dreamdata data. Three tools write, and each
   needs an optional permission you grant on the authorization screen:
   - `report_builder_save_report` saves a new report to your Analytics Hub
     (**Save Dreamdata Reports**, `reports:write` scope).
   - `save_audience` saves a new audience to your Audience Hub
     (**Save Dreamdata Audiences**, `audiences:write` scope).
+  - `create_dashboard` creates a new dashboard in your Analytics Hub
+    (**Save Dreamdata Dashboards**, `dashboards:write` scope). Each widget gets its own
+    copy of its report inside the dashboard; saved reports it uses are not changed.
 
-  If you don't grant a permission, the matching tool is hidden. Both tools only create
+  If you don't grant a permission, the matching tool is hidden. These tools only create
   new items and never change or overwrite existing ones. The assistant asks you to
   confirm before it saves.
 - **Per-request authorization.** Every tool call re-checks that your token grants access to
